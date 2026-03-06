@@ -8,9 +8,6 @@ A decentralized peer-to-peer messaging app with dual transport architecture: loc
 
 📲 [App Store](https://apps.apple.com/us/app/bitchat-mesh/id6748219622)
 
-> [!WARNING]
-> Private messages have not received external security review and may contain vulnerabilities. Do not use for sensitive use cases, and do not rely on its security until it has been reviewed. Now uses the [Noise Protocol](https://www.noiseprotocol.org) for identity and encryption. Public local chat (the main feature) has no security concerns.
-
 ## License
 
 This project is released into the public domain. See the [LICENSE](LICENSE) file for details.
@@ -116,3 +113,10 @@ For detailed protocol documentation, see the [Technical Whitepaper](WHITEPAPER.m
 
 Want to try this on macos: `just run` will set it up and run from source.
 Run `just clean` afterwards to restore things to original state for mobile app building and development.
+
+## Localization
+
+- Base app resources live under `bitchat/Localization/Base.lproj/`. Add new copy to `Localizable.strings` and plural rules to `Localizable.stringsdict`.
+- Share extension strings are separate in `bitchatShareExtension/Localization/Base.lproj/Localizable.strings`.
+- Prefer keys that describe intent (`app_info.features.offline.title`) and reuse existing ones where possible.
+- Run `xcodebuild -project bitchat.xcodeproj -scheme "bitchat (macOS)" -configuration Debug CODE_SIGNING_ALLOWED=NO build` to compile-check any localization updates.
